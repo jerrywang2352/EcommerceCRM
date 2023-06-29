@@ -14,7 +14,7 @@ const App = () => {
   const [messages,setMessages] = useState(initialMessages); 
 
   const addComment = (message) => {
-    setMessages(oldMessages => [...oldMessages,message])
+    setMessages(oldMessages => [message,...oldMessages])
     console.log(messages)
   }
 

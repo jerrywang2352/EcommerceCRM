@@ -2,7 +2,7 @@ import React from 'react';
 import message from './message.jpg';
 import trash from './trash.jpg';
 
-const Comment = () => {
+const Comment = (props) => {
     return (
         <table className="comment">
             <tbody>
@@ -11,7 +11,7 @@ const Comment = () => {
                         <img src={message}/>
                     </td>
                     <td className="message">
-                        Here are where messages go.
+                        {props.comment}
                     </td>
                     <td className="delete">
                         <img src={trash}/>

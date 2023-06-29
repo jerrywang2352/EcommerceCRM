@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import CommentList from './CommentList';
+import CommentBox from './CommentBox';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+
+  let initialMessages = ([
+    "I hate CS",
+    "I'm going to kill myself",
+    "fuck my life",
+    "please make the pain go away :("
+  ]);
+
+  const [messages,setMessages] = useState(initialMessages); 
+
+  const addComment = (message) => {
+    setMessages(oldMessages => [...oldMessages,message])
+    console.log(messages)
+  }
+
+  return(
+    <div>
+      <CommentBox addComment={addComment}/>
+      <CommentList messages={messages}/>
     </div>
   );
-}
+};
 
 export default App;

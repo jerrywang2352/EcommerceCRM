@@ -1,11 +1,10 @@
 import React from 'react';
-import uniqid from 'uniqid';
 import Comment from './Comment';
 
 const CommentList = (props) => {
-    const comments = props.messages.map((message) => 
-        <Comment key={uniqid()} comment={message}/>
-    );
+    const comments = props.messages.map((comment) => { 
+        return <Comment key={comment.id} index={comment.id} comment={comment.message} deleteComment={props.deleteComment}/>;
+    });
 
     return(
         <div className="commentList">

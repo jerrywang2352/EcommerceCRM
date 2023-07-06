@@ -11,7 +11,6 @@ const AddProducts = () => {
     const [error,setError] = useState('');
     
     const colRef = collection(db,'products');
-    const storageRef = ref(storage);
 
     const types = ['images/png','image/jpeg'];
     
@@ -29,8 +28,7 @@ const AddProducts = () => {
     //submit form add product event
     const addProduct = (e) => {
         e.preventDefault();
-        console.log(productName,productPrice,productImg);
-        const storageRef = ref(storage,'product-images'); 
+        //console.log(productName,productPrice,productImg); 
         const imageRef = ref(storage,`product-images/${productImg.name}`);
 
         //store the image

@@ -9,7 +9,7 @@ const Products = () => {
         <>
             {products.length !== 0 && <h1>Products</h1>}
             <div className='products-container'>
-                {products.length === 0 && <div>slow internet...no products to display</div>}
+                {products.length === 0 && <div>loading...no products to display</div>}
                 {products.map(product => (
                     <div className='product-card' key={product.productID}>
                         <div className='product-img'>

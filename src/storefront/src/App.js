@@ -1,13 +1,16 @@
-import React, { Component } from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./components/Home"
-import AddProducts from "./components/AddProducts"
-import Signup from "./components/Signup"
-import Login from "./components/Login"
-import { ProductsContextProvider } from "./global/ProductsContext"
-import { onAuthStateChanged } from "firebase/auth"
-import {doc,getDoc} from 'firebase/firestore'
-import {auth,db} from './config/Config'
+import React, { Component } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import AddProducts from "./components/AddProducts";
+import Signup from "./components/Signup";
+import Login from './components/Login';
+import Cart from './components/Cart';
+import { ProductsContextProvider } from "./global/ProductsContext";
+import { CartContextProvider } from './global/CartContext';
+import { onAuthStateChanged } from "firebase/auth";
+import {doc,getDoc} from 'firebase/firestore';
+import {auth,db} from './config/Config';
+
 
 class App extends Component {
   state = {
@@ -38,14 +41,17 @@ class App extends Component {
   render() {
     return (
       <ProductsContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route exact path="/" element={<Home user={this.state.user}/>} />
-            <Route path="/addproducts" element={<AddProducts />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </BrowserRouter>
+        <CartContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route exact path="/" element={<Home user={this.state.user}/>} />
+              <Route path="/addproducts" element={<AddProducts />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path='/cartproducts' element={<Cart user={this.state.user}/>} />
+            </Routes>
+          </BrowserRouter>
+        </CartContextProvider>
       </ProductsContextProvider>
     );
   }

@@ -38,7 +38,7 @@ const Login = (props) => {
             {error && <span className='error-msg'>{error}</span>}
             <br/>
             <span>Don't have an account? Register
-                <Link to="signup"> Here</Link>
+                <Link to="/signup"> Here</Link>
             </span>
         </div>
     );

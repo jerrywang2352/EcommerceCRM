@@ -85,7 +85,7 @@ const Signup = (props) => {
       <br />
       <span>
         Already have an account? Login 
-        <Link to="login"> Here</Link>
+        <Link to="/login"> Here</Link>
       </span>
     </div>
   );

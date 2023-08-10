@@ -33,7 +33,7 @@ const Navbar = ({user}) => {
             {/* if we have a user logged in*/}
             {user && <div className='rightside'>
                 <span><Link to='/' className='navlinks'>{user}</Link></span>
-                <span><Link to= 'cartproducts' className='navlinks'><Icon icon={cart}/></Link></span>
+                <span><Link to= '/cartproducts' className='navlinks'><Icon icon={cart}/></Link></span>
                 <div className='relative'>
                     <span className='no-of-products'>{totalQty}</span>
                 </div>

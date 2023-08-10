@@ -36,23 +36,23 @@ const Cart = ({user}) => {
                         </>
                     }
                     {shoppingCart && shoppingCart.map(cart => (
-                        <div className='cart-card' key={cart.ProductID}>
+                        <div className='cart-card' key={cart.productID}>
 
                             <div className='cart-img'>
-                                <img src={cart.ProductImg} alt="not found" />
+                                <img src={cart.productImg} alt="not found" />
                             </div>
 
-                            <div className='cart-name'>{cart.ProductName}</div>
+                            <div className='cart-name'>{cart.productName}</div>
 
-                            <div className='cart-price-orignal'>Rs {cart.ProductPrice}.00</div>
+                            <div className='cart-price-orignal'>Rs {cart.productPrice}.00</div>
 
-                            <div className='inc' onClick={() => dispatch({ type: 'INC', id: cart.ProductID, cart })}>
+                            <div className='inc' onClick={() => dispatch({ type: 'INC', id: cart.productID, cart })}>
                                 <Icon icon={ic_add} size={24} />
                             </div>
 
                             <div className='quantity'>{cart.qty}</div>
 
-                            <div className='dec' onClick={() => dispatch({ type: 'DEC', id: cart.ProductID, cart })}>
+                            <div className='dec' onClick={() => dispatch({ type: 'DEC', id: cart.productID, cart })}>
                                 <Icon icon={ic_remove} size={24} />
                             </div>
 
@@ -60,7 +60,7 @@ const Cart = ({user}) => {
                                 Rs {cart.TotalProductPrice}.00
                             </div>
 
-                            <button className='delete-btn' onClick={() => dispatch({ type: 'DELETE', id: cart.ProductID, cart })}>
+                            <button className='delete-btn' onClick={() => dispatch({ type: 'DELETE', id: cart.productID, cart })}>
                                 <Icon icon={iosTrashOutline} size={24} />
                             </button>
                         </div>
